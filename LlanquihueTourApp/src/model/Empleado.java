@@ -1,34 +1,42 @@
 package model;
 
+import util.Validador;
+
 /**
  * Representa a un empleado de Llanquihue Tour.
- * Hereda de {@link Persona} y agrega sus datos laborales.
+ * Hereda de Persona y agrega sus datos laborales.
  */
 public class Empleado extends Persona {
     private String cargo;
     private double sueldoBase;
 
-    /**
-     * Crea un empleado con sus datos personales y laborales.
-     *
-     * @param rut        RUT de la persona
-     * @param nombre     nombre completo
-     * @param telefono   teléfono de contacto
-     * @param direccion  dirección de residencia
-     * @param cargo      cargo que desempeña
-     * @param sueldoBase sueldo base en pesos
-     */
     public Empleado(String rut, String nombre, String telefono, Direccion direccion,
                     String cargo, double sueldoBase) {
         super(rut, nombre, telefono, direccion);
-        this.cargo = cargo;
-        this.sueldoBase = sueldoBase;
+        try {
+            setCargo(cargo);
+            setSueldoBase(sueldoBase);
+        } catch (IllegalArgumentException e) {
+            throw new IllegalArgumentException("No se pudo crear el empleado: " + e.getMessage());
+        }
     }
 
     public String getCargo() { return cargo; }
-    public void setCargo(String cargo) { this.cargo = cargo; }
+
+    public void setCargo(String cargo) {
+        this.cargo = Validador.texto(cargo, "cargo");
+    }
+
     public double getSueldoBase() { return sueldoBase; }
-    public void setSueldoBase(double sueldoBase) { this.sueldoBase = sueldoBase; }
+
+    public void setSueldoBase(double sueldoBase) {
+        this.sueldoBase = Validador.sueldo(sueldoBase);
+    }
+
+    @Override
+    public String getRol() {
+        return "Empleado";
+    }
 
     @Override
     public String toString() {

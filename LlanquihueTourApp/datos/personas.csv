@@ -1,0 +1,7 @@
+tipo;rut;nombre;telefono;calle;numero;ciudad;region;tipoCliente;cargo;sueldoBase;idioma;especialidad
+CLIENTE;19876543-2;Camila Rojas;+56 9 8765 4321;Los Volcanes;1250;Llanquihue;Los Lagos;Nacional;;;;
+CLIENTE;17654321-5;Matías Fernández;+56 9 5544 3322;Camino al Lago;88;Puerto Varas;Los Lagos;Extranjero;;;;
+EMPLEADO;12345678-9;Valentina Soto;+56 9 1122 3344;Camino Rural;37;Frutillar;Los Lagos;;Operadora de reservas;780000;;
+GUIA;15432109-K;Pedro Muñoz;+56 9 2345 6789;Av. Costanera;480;Puerto Varas;Los Lagos;;Guía de turismo;850000;Inglés;Rutas gastronómicas
+GUIA;16987654-3;Ana Navarro;+56 9 7788 9900;Lago District;21;Llanquihue;Los Lagos;;Guía de turismo;820000;Alemán;Paseos lacustres
+EMPLEADO;11223344-6;Rodrigo Silva;+56 9 4455 6677;Centro;102;Puerto Montt;Los Lagos;;Coordinador de operaciones;910000;;

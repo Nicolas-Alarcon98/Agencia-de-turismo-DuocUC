@@ -25,5 +25,8 @@ bin/
 ### VS Code ###
 .vscode/
 
+### Archivos generados ###
+*.jar
+
 ### Mac OS ###
 .DS_Store

@@ -1,28 +1,33 @@
 package model;
 
+import util.Validador;
+
 /**
  * Representa a un cliente de Llanquihue Tour.
- * Hereda de {@link Persona} y agrega el tipo de cliente.
+ * Hereda de Persona y agrega el tipo de cliente.
  */
 public class Cliente extends Persona {
     private String tipoCliente;
 
-    /**
-     * Crea un cliente con sus datos personales y su tipo.
-     *
-     * @param rut         RUT de la persona
-     * @param nombre      nombre completo
-     * @param telefono    teléfono de contacto
-     * @param direccion   dirección de residencia
-     * @param tipoCliente Nacional o Extranjero
-     */
     public Cliente(String rut, String nombre, String telefono, Direccion direccion, String tipoCliente) {
         super(rut, nombre, telefono, direccion);
-        this.tipoCliente = tipoCliente;
+        try {
+            setTipoCliente(tipoCliente);
+        } catch (IllegalArgumentException e) {
+            throw new IllegalArgumentException("No se pudo crear el cliente: " + e.getMessage());
+        }
     }
 
     public String getTipoCliente() { return tipoCliente; }
-    public void setTipoCliente(String tipoCliente) { this.tipoCliente = tipoCliente; }
+
+    public void setTipoCliente(String tipoCliente) {
+        this.tipoCliente = Validador.texto(tipoCliente, "tipo de cliente");
+    }
+
+    @Override
+    public String getRol() {
+        return "Cliente";
+    }
 
     @Override
     public String toString() {
